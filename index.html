@@ -7,6 +7,7 @@
     <meta name="description" content="html css를 이용한 반응형 웹 사이트 Portfolio ">
     <meta name="author" content="NYW">
     <link rel="icon" type="image/jpg" href="images/LiberSpiritus.jpg">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/6201028e78.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -20,7 +21,7 @@
         <nav id="navbar">
             <div class="navbar__logo">
                 <img src="images/LiberSpiritus.jpg" />
-                <a href="#">LiberSpiritus</a>
+                <a href="#">NYW</a>
             </div>
             <div class="navbar__menu">
                 <ul class="navbar__menu">
@@ -33,18 +34,64 @@
                 </ul>
             </div>
         </nav>
+        
+        <!-- Home -->
+        <section id="home">
+            <img src="images/NYW (first Busking).jpg" alt="NYW's Profile Photo" class="home__avatar">
+            <h1 class="home__title">Hello, I'm Nah Yeon Wook</h1>
+            <h2 class="home__description">저는 서울에 거주 하고 있으며, 프론트엔드 개발자를 목표로 하고 있습니다!</h2>
+            <button class="home__contact">Contact Me</button>
+        </section>
     </header>
 
-    <!-- Home -->
-    <section id="home">
-        <img src="images/NYW (first Busking).jpg" alt="NYW's Profile Photo" class="home__avatar">
-        <h1 class="home__title">Hello, I'm LiberSpiritus</h1>
-        <h2 class="home__description">저는 서울에 거주 하고 있으며, 프론트엔드 개발자를 목표로 하고 있습니다!</h2>
-        <button class="home__contact">Contact Me</button>
-    </section>
-
     <!-- About -->
-    <section id="about"></section>
+    <section id="about">
+        <h1>About me</h1>
+        <p>웹 퍼블리셔 2년 경력 및 프로젝트를 진행 했으며, 프로젝트는 기독교 홈페이지 일반 홈페이지 및 반응형 홈페이지 작업 다수, 전자책 퍼블리싱 3건을 진행했습니다.</p>
+
+        <div class="about__majors">
+            <ul class="major">
+                <li class="major__icon">
+                    <i class="fab fa-html5"></i>
+                </li>
+                <li class="major__title">HTML</li>
+                <li class="major__description">
+                    설명
+                </li>
+            </ul>
+            <ul class="major">
+                <li class="major__icon">
+                    <i class="fab fa-css3-alt"></i>
+                </li>
+                <li class="major__title">HTML</li>
+                <li class="major__description">
+                    설명
+                </li>
+            </ul>
+            <ul class="major">
+                <li class="major__icon">
+                    <i class="fab fa-js"></i>
+                </li>
+                <li class="major__title">HTML</li>
+                <li class="major__description">
+                    설명
+                </li>
+            </ul>
+        </div>
+        <div class="about__jobs">
+            <div class="job">
+                <img src="images/jobs/Stephen logo.png" alt="Stephen Information" class="job__logo">
+                <p class="job__name">스데반 정보</p>
+                <p class="job__period">2016.11 ~ 2018.6</p>
+            </div>
+            <div class="job">
+                <img src="images/jobs/icecandy logo.png" alt="Stephen Information" class="job__logo">
+                <p class="job__name">아이스 캔디</p>
+                <p class="job__period">2018.8 ~ 2018.11</p>
+            </div>
+        </div>
+
+    </section>
     <!-- Skills -->
     <section id="skills"></section>
     <!-- Work -->
