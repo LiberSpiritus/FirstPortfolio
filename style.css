@@ -3,3 +3,7 @@ li {
   padding: 0;
   margin: 0;
 }
+
+.skill__value {
+  width: 99%;
+}
