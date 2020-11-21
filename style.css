@@ -10,7 +10,7 @@
   --color-dark-grey: #4d4d4d;
   --color-grey: #565656;
   --color-light-grey: #706e6f;
-  --color-blue: #73aace;
+  --color-blue: #009aff;
   --color-skyblue: #38b6ff;
   --color-yellow: #fff7d1;
   --color-orange: #feb546;
@@ -72,7 +72,7 @@ h1 {
 }
 
 h2 {
-  font-size: var(--font-regular);
+  font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
   color: var(--color-black);
   margin: 8px 0;
@@ -307,7 +307,7 @@ p {
 
 .category__btn.active,
 .category__btn:hover {
-  background-color: var(--color-pink);
+  background-color: var(--color-skyblue);
   color: var(--color-white);
 }
 
@@ -318,7 +318,7 @@ p {
 }
 
 .category__count {
-  background: var(--color-orange);
+  background: var(--color-blue);
   border-radius: 50%;
   color: var(--color-white);
   width: 24px;
@@ -432,4 +432,34 @@ p {
 
 .testimonials__speech-bubble a {
   color: var(--color-pink);
+}
+
+/* Contact */
+
+#contact {
+  background-color: var(--color-skyblue);
+}
+
+.contact__title,
+.contact__email,
+.contact__rights {
+  color: var(--color-white);
+}
+
+.contact__title {
+  margin: 32px 0;
+}
+
+.contact__links {
+  font-size: var(--font-large);
+  margin: 24px 0;
+}
+
+.contact__links i {
+  transition: all var(--animation-duration) ease-in;
+}
+
+.contact__links i:hover {
+  transform: scale(1.1);
+  color: var(--color-yellow);
 }
