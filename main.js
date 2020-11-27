@@ -51,8 +51,25 @@ homeContact.addEventListener('click', (e) =>{
 
 });
 
+
+
+//4. Transparent home (스크롤시)
+const home = document.querySelector(".home__container");
+const homeHeight = home.getBoundingClientRect().height;
+
+document.addEventListener('scroll', () => {
+    console.log(`window.scrollY : ${window.scrollY}`);
+    console.log(1 - window.scrollY / homeHeight);
+    home.style.opacity = 1 - window.scrollY / homeHeight;
+});
+
+
+
+
+
 // 중복 제거 하기 위해 함수 만듬.
 function scrollIntoView(selector){
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: "smooth"});    
 }
+

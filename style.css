@@ -158,6 +158,11 @@ p {
   padding-top: 120px;
 }
 
+.home__container {
+  transition: all var(--animation-duration) ease-in-out;
+  /* transition: 0.3s; */
+}
+
 .home__avatar {
   width: 250px;
   height: 250px;
