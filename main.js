@@ -29,13 +29,30 @@ navbarMenu.addEventListener('click',(e) => {
 
     console.log(link);
 
-    const scrollTo = document.querySelector(link);
-    scrollTo.scrollIntoView({behavior: "smooth"});
-
+    // const scrollTo = document.querySelector(link); 중복제거
+    // scrollTo.scrollIntoView({behavior: "smooth"});
+    scrollIntoView(link);
 
 });
-// navbarMenu.addEventListener('click',function (){
-//     console.log('asdasdas');
-//     console.log(this.className);
-// });
 
+// 3. Handle click on "contact me" button on home
+const homeContact = document.querySelector('.home__contact');
+homeContact.addEventListener('click', (e) =>{
+    const link = e.target.dataset.aaaa;
+    console.log(link);
+    if(link === undefined){
+        return;
+    }
+
+    scrollIntoView(link);
+
+    // const scrollTo = document.querySelector(link); 중복제거
+    // scrollTo.scrollIntoView({behavior: "smooth"});
+
+});
+
+// 중복 제거 하기 위해 함수 만듬.
+function scrollIntoView(selector){
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({behavior: "smooth"});    
+}
