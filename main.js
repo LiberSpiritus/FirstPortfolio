@@ -58,17 +58,33 @@ const home = document.querySelector(".home__container");
 const homeHeight = home.getBoundingClientRect().height;
 
 document.addEventListener('scroll', () => {
-    console.log(`window.scrollY : ${window.scrollY}`);
-    console.log(1 - window.scrollY / homeHeight);
+    // console.log(`window.scrollY : ${window.scrollY}`);
+    // console.log(1 - window.scrollY / homeHeight);
     home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
 
+// Show "arrow up" button when scrolling down
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () =>{
+    if(window.scrollY > homeHeight / 2){
+        arrowUp.classList.add('visible');
+    }else{
+        arrowUp.classList.remove('visible');
+    }
+});
+
+// 클릭시 홈으로 스크롤 되게
+// const arrowUp2 = document.querySelector(".arrow-up i")
+arrowUp.addEventListener('click', (e) =>{
+    scrollIntoView('#home');
+});
 
 
 
-// 중복 제거 하기 위해 함수 만듬.
+// 중복 제거 하기 위해 스크롤 함수 만듬.
 function scrollIntoView(selector){
+    console.log(`selector : ${selector}`);
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: "smooth"});    
 }
