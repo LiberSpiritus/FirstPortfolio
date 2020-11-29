@@ -64,7 +64,7 @@ document.addEventListener('scroll', () => {
 });
 
 
-// Show "arrow up" button when scrolling down
+// 5. Show "arrow up" button when scrolling down
 const arrowUp = document.querySelector('.arrow-up');
 document.addEventListener('scroll', () =>{
     if(window.scrollY > homeHeight / 2){
@@ -75,7 +75,6 @@ document.addEventListener('scroll', () =>{
 });
 
 // 클릭시 홈으로 스크롤 되게
-// const arrowUp2 = document.querySelector(".arrow-up i")
 arrowUp.addEventListener('click', (e) =>{
     scrollIntoView('#home');
 });
