@@ -176,25 +176,33 @@
             <h1>My work</h1>
             <h3>Projects</h3>
             <div class="work__category">
-                <button class="category__btn active">
+                <button class="category__btn active" data-filter="*" data-toggle="1">
                     All
                     <span class="category__count">1</span>
                 </button>
-                <button class="category__btn">
+                <button class="category__btn" data-filter="front-end" data-toggle="0">
                     Front-end
+                    <span class="category__count">1</span>
+                </button>
+                <button class="category__btn" data-filter="back-end" data-toggle="0">
+                    Back-end
+                    <span class="category__count">1</span>
+                </button>
+                <button class="category__btn" data-filter="mobile" data-toggle="0">
+                    Mobile
                     <span class="category__count">1</span>
                 </button>
             </div>
     
             <div class="work__projects">
-                <a href="https://github.com/LiberSpiritus/FirstPortfolio" class="project" target="_blank">
+                <a href="https://github.com/LiberSpiritus/FirstPortfolio" class="project" target="_blank" data-type="front-end">
                     <img class="project__img" src="images/projects/project1.png" alt="Youtube" />
                     <div class="project__description">
                         <h3>Youtube Site</h3>
                         <span>Clone coding with HTML and CSS</span>
                     </div>
                 </a>
-                <a href="https://github.com/LiberSpiritus/FirstPortfolio" class="project" target="_blank">
+                <a href="https://github.com/LiberSpiritus/FirstPortfolio" class="project" target="_blank" data-type="mobile">
                     <img class="project__img" src="images/projects/project2.png" alt="Youtube" />
                     <div class="project__description">
                         <h3>Youtube Site</h3>

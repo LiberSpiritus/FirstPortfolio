@@ -79,7 +79,61 @@ arrowUp.addEventListener('click', (e) =>{
     scrollIntoView('#home');
 });
 
+//6. Projects
+const workBtnContainer = document.querySelector('.work__category');
+const categoryBtns = document.querySelectorAll('[data-filter]');
+const activeBtn = document.querySelector('.category__btn.active');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
 
+
+
+workBtnContainer.addEventListener('click', (e) => {
+    //1) My work 탭 클릭시 원하는 값 가져오기 ex)data-filter에 정의 되어있는 값!
+    const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+    if(filter == null){
+        return;
+    }
+
+    projectContainer.classList.add('anim-out');
+
+
+    console.log(`filter: ${filter}`);
+
+    
+
+
+    setTimeout(() =>{
+        projects.forEach((project) => {
+            //2) 포트폴리오 썸네일(project) 객체안에 들어있는 data-type 값 가져오기
+            const type = project.dataset.type;
+            console.log(`type: ${type}`);
+            
+            //3) My work탭에 있는 data-filter 값이 '*' 이거나
+            //My work탭에 있는 data-filter 값과, 포트폴리오 썸네일 에 있는 data-type값과 같으면 보이게하고(invisible class 삭제),
+            //아니면 사라지게 함(invisible class 추가)
+            if(filter === '*' || filter === type){
+                project.classList.remove('invisible');
+            }else{
+                project.classList.add('invisible');
+            }
+        });        
+        projectContainer.classList.remove('anim-out');
+    }, 300);
+
+    // for(let project of projects){
+    //     console.log(project);
+    // }
+
+    // console.log('---------------');
+
+    // for(let i = 0; i < projects.length; i++){
+    //     console.log(projects[i]);
+    // }
+
+
+    
+});
 
 // 중복 제거 하기 위해 스크롤 함수 만듬.
 function scrollIntoView(selector){
