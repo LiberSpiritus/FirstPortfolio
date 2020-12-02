@@ -95,15 +95,19 @@ workBtnContainer.addEventListener('click', (e) => {
         return;
     }
 
+    // 8. Remove selection from the previous item select the new one
+    // My Work 탭 클릭시 상태값 바꾸기
+    const active = document.querySelector('.category__btn.selected');
+    active.classList.remove('selected');
+    const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+    target.classList.add('selected');
+
+
+    //7. My Work Project Filtering & Animation - 영상 보면서 살짝 이해가 안갔으나 pass
+    //setTimeout => 해당 함수를 지정한 시간만큼 실행하라고 던져놓고, 해당 코드블록을 빠져 나옴.
     projectContainer.classList.add('anim-out');
-
-
-    console.log(`filter: ${filter}`);
-
-    
-
-
     setTimeout(() =>{
+        
         projects.forEach((project) => {
             //2) 포트폴리오 썸네일(project) 객체안에 들어있는 data-type 값 가져오기
             const type = project.dataset.type;
