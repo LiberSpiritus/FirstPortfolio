@@ -9,11 +9,13 @@ document.addEventListener('scroll', () => {
     // console.log(`navbarHeight : ${navbarHeight}`);
     if(window.scrollY > navbarHeight){
         navbar.classList.add('navbar--dark');
+        navbarMenu.classList.remove('open');
     }else{
         navbar.classList.remove('navbar--dark');
     }
 
 });
+
 
 //2. scroll to section
 //Handle scrolling when tapping on the navbar menu
@@ -31,7 +33,15 @@ navbarMenu.addEventListener('click',(e) => {
 
     // const scrollTo = document.querySelector(link); 중복제거
     // scrollTo.scrollIntoView({behavior: "smooth"});
+    
     scrollIntoView(link);
+
+});
+
+// 9. 모바일 사이즈에서 三 버튼 누를시 메뉴 활성화 시키기 (toggle)
+const navbarToggleBtn =  document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click',()=>{
+    navbarMenu.classList.toggle('open');
 
 });
 
