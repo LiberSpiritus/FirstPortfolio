@@ -143,9 +143,17 @@ p {
   display: none;
 }
 
+.navbar__logo {
+  display: flex;
+  align-items: center;
+}
+
 .navbar__logo img {
-  display: inline-block;
-  width: 1.25rem;
+  width: 2.188rem;
+}
+
+.navbar__logo a {
+  margin-left: 5px;
 }
 
 /*  home */
@@ -325,6 +333,7 @@ p {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
 }
 
 .category__btn.selected,
@@ -347,9 +356,9 @@ p {
   height: 24px;
   line-height: 24px;
   display: inline-block;
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -521,8 +530,20 @@ p {
 
 /* 768px 사이즈 일때 */
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
+
   .navbar__toggle-btn {
     display: block;
+    top: 16px;
+    right: 16px;
+    font-size: var(--font-medium);
   }
 
   #navbar {
@@ -547,24 +568,63 @@ p {
     display: block;
   }
 
+  .section {
+    padding: 16px;
+    padding-top: 50px;
+  }
+
   .about__majors {
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
 
   .major {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category__btn {
+    margin: 4px 0;
+    width: 100%;
+  }
+
   .project {
     flex-grow: 1; /*화면 꽉 채움*/
   }
 
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* .testimonial:last-child {
+    flex-direction: column-reverse;
+  } */
+
   .testimonial__avatar {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+  }
+  .testimonial__avatar:nth-child(odd),
+  .testimonial__avatar:nth-child(even) {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+
+  .testimonials__speech-bubble {
+    order: 1; /*0이 기본값임으로 1로 줌 그래야 testimonial__avatar보다 나중에 나옴.*/
+  }
+
+  .arrow-up {
+    bottom: 16px;
+    right: 16px;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
   }
 }
