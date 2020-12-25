@@ -35,7 +35,6 @@ navbarMenu.addEventListener('click',(e) => {
     // scrollTo.scrollIntoView({behavior: "smooth"});
     
     scrollIntoView(link);
-
 });
 
 // 9. 모바일 사이즈에서 三 버튼 누를시 메뉴 활성화 시키기 (toggle)
@@ -149,10 +148,93 @@ workBtnContainer.addEventListener('click', (e) => {
     
 });
 
+
+
+
+//1. 모든 섹션 요소들과 메뉴아이템들을 가지고 온다
+
+const sectionIds = [
+    '#home', 
+    '#about', 
+    '#skills', 
+    '#work', 
+    '#testimonials', 
+    '#contact'
+];
+
+
+const sections = sectionIds.map(id => document.querySelector(id));
+const navItems = sectionIds.map(id => 
+    document.querySelector(`[data-aaaa="${id}"]`)
+);
+
+// console.log(sections);
+// console.log(navItems);
+
+//2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
+//3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시키기
+
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0];
+
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3,
+}
+
+const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+        if(!entry.inIntersecting && entry.intersectionRatio > 0){
+            const index = sectionIds.indexOf(`#${entry.target.id}`);
+            // console.log(index, entry.target.id);
+            // 방향 찾기 - 스크롤링이 아래로 되어서 페이지가 올라옴
+            if(entry.boundingClientRect.y < 0) {
+                selectedNavIndex = index + 1;
+            }else{ // 스크롤링이 위로 되어서 페이지가 내려옴
+                selectedNavIndex = index - 1;
+            }
+
+        }
+    });
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach(section => observer.observe(section));
+
+window.addEventListener('wheel', () => {
+    // wheel : 사용자가 마우스 휠을 이용할때만 발생하는 이벤트
+    console.log(window.scrollY);
+    console.log(window.innerHeight);
+    console.log(document.body.clientHeight);
+    if(window.scrollY === 0){ // 맨위로 도달
+        //scrollY 값이 0 일때 (wheel 이벤트와 상관 없음)
+        selectedNavIndex = 0;
+        //인덱스를 0으로 주어 Home을 가리킴
+    } else if (Math.round(window.scrollY + window.innerHeight) >= document.body.clientHeight){ // 맨 아래로 도달
+    //window의 scollY 와 보여지는 window의 높이(viewport)의 합이 document의 전체 높이와 같을 경우(사용자가 페이지의 마지막까지 wheel 했을 경우)
+        selectedNavIndex = navItems.length - 1;
+        //navItem의 길이(6)에서 1을 뺀 5번째의 인덱스를 선택 (SelectedNavIndex : Contact)
+    }
+    selectNavItem(navItems[selectedNavIndex]);
+    //selectNavItem 함수에 navItems[selectedNavIndex] 맨 마지막 Nav의 index인 Contact 일경우 인자값은 (navItems[5]) 인자를 호출하여 호출
+});
+
 // 중복 제거 하기 위해 스크롤 함수 만듬.
 function scrollIntoView(selector){
     console.log(`selector : ${selector}`);
     const scrollTo = document.querySelector(selector);
-    scrollTo.scrollIntoView({behavior: "smooth"});    
+    scrollTo.scrollIntoView({behavior: "smooth"});  
+    selectNavItem(navItems[sectionIds.indexOf(selector)]);  
+    // 찾은 객체의 인덱스 값을 반환을 시켜주기 위해 indexof를 사용
 }
+
+// 기존에 선택됐던 인덱스의 active 클래스를 지운 뒤 새로 선택된 인덱스에 active를 추가
+function selectNavItem(selected){
+    selectedNavItem.classList.remove('active');
+    selectedNavItem = selected;
+    selectedNavItem.classList.add('active');
+}
+
+
 
