@@ -158,7 +158,7 @@ const sectionIds = [
     '#about', 
     '#skills', 
     '#work', 
-    '#testimonials', 
+    '#grow', 
     '#contact'
 ];
 
