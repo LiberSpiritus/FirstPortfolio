@@ -532,44 +532,15 @@ p {
   pointer-events: auto;
 }
 
+/*text animation 효과 위해 추가 21.2.5*/
 .home__title {
-  border-right: solid 3px rgba(255, 255, 255, 0.75);
-  white-space: nowrap;
-  overflow: hidden;
-  text-align: center;
   margin: 10px auto 0px auto;
-  /* font-family: 'Source Code Pro', monospace;  
-  font-size: 28px;
-  color: rgba(255,255,255,.70); */
+  /* width: 400px; */
+  width: 25rem;
 }
 
-/* Animation */
-.home__title {
-  animation: animated-text 4s steps(29, end) 1s 1 normal both,
-    animated-cursor 600ms steps(29, end) infinite;
-}
-
-/* text animation */
-
-@keyframes animated-text {
-  from {
-    width: 0;
-  }
-  to {
-    /* width: 56vw; */
-    width: 640px;
-  }
-}
-
-/* cursor animations */
-
-@keyframes animated-cursor {
-  from {
-    border-right-color: rgba(255, 255, 255, 0.75);
-  }
-  to {
-    border-right-color: transparent;
-  }
+.home__title span:nth-of-type(11) {
+  display: block !important;
 }
 
 /* 768px 사이즈 일때 */
@@ -672,15 +643,9 @@ p {
     line-height: 40px;
   }
 
-  /* text animation */
-
-  @keyframes animated-text {
-    from {
-      width: 0;
-    }
-    to {
-      /* width: 65vw; */
-      width: 400px;
-    }
+  /*text animation 효과 위해 추가 21.2.5*/
+  .home__title {
+    /* width: 250px; */
+    width: 15.625rem;
   }
 }

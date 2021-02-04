@@ -235,4 +235,19 @@ function selectNavItem(selected) {
 }
 
 
+// 메인 화면에 글자 타이핑 효과 추가 21.2.5
+var content = 'Hello, I\'m Nah Yeon Wook.';
+
+var ele = '<span>' + content.split('').join('</span><span>') + '</span>';
+
+$(ele).hide().appendTo('.home__title').each(function (i) {
+    $(this).delay(100 * i).css({
+        display: 'inline',
+        opacity: 0
+    }).animate({
+        opacity: 1
+    }, 100);
+    
+});
+
 
