@@ -535,11 +535,11 @@ p {
 /*text animation 효과 위해 추가 21.2.5*/
 .home__title {
   margin: 10px auto 0px auto;
-  /* width: 400px; */
-  width: 25rem;
+  /* width: 490px; */
+  width: 30.625rem;
 }
 
-.home__title span:nth-of-type(11) {
+.home__title span:nth-of-type(7) {
   display: block !important;
 }
 
@@ -645,7 +645,7 @@ p {
 
   /*text animation 효과 위해 추가 21.2.5*/
   .home__title {
-    /* width: 250px; */
-    width: 15.625rem;
+    /* width: 310px; */
+    width: 19.375rem;
   }
 }
