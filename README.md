@@ -55,3 +55,4 @@ IE 6-9 에선 제대로 보여지지 않을수 있습니다.)
 - Front-end 카테고리 ShoppingList App 추가
 - 카테고리 번호 카운트 수정
 - Tools 추가 (포토샵)
+- JOB란 NICE평가정보 추가
