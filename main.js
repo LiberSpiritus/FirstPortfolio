@@ -5,7 +5,7 @@ const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
 
 document.addEventListener('scroll', () => {
-    //console.log(window.scrollY);
+    // console.log(`window.scrollY : ${window.scrollY}`);
     // console.log(`navbarHeight : ${navbarHeight}`);
     if (window.scrollY > navbarHeight) {
         navbar.classList.add('navbar--dark');
@@ -17,7 +17,7 @@ document.addEventListener('scroll', () => {
 });
 
 
-//2. scroll to section
+//2. scroll to section (상단 메뉴 클릭시 해당 Section으로 스크롤링 하기)
 //Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (e) => {
@@ -45,6 +45,7 @@ navbarToggleBtn.addEventListener('click', () => {
 });
 
 // 3. Handle click on "contact me" button on home
+//(Contact Me 버튼 클릭시 맨 하단 Contact 섹션으로 이동)
 const homeContact = document.querySelector('.home__contact');
 homeContact.addEventListener('click', (e) => {
     const link = e.target.dataset.aaaa;
@@ -62,14 +63,20 @@ homeContact.addEventListener('click', (e) => {
 
 
 
-//4. Transparent home (스크롤시)
+//4. Transparent home (스크롤시 home__container 투명)
+//4. Transparent section (스크롤시 해당 색션 구간 투명)
 const home = document.querySelector(".home__container");
+// const about = document.querySelector(".section__container");
 const homeHeight = home.getBoundingClientRect().height;
+// const aboutHeight = about.getBoundingClientRect().height;
+console.log(`homeHeight : ${homeHeight}`);
+// console.log(`aboutHeight : ${aboutHeight}`);
 
 document.addEventListener('scroll', () => {
     // console.log(`window.scrollY : ${window.scrollY}`);
-    // console.log(1 - window.scrollY / homeHeight);
+    // console.log(1 - window.scrollY / aboutHeight);
     home.style.opacity = 1 - window.scrollY / homeHeight;
+    // about.style.opacity = 1 - window.scrollY / aboutHeight;
 });
 
 
@@ -202,9 +209,9 @@ sections.forEach(section => observer.observe(section));
 
 window.addEventListener('wheel', () => {
     // wheel : 사용자가 마우스 휠을 이용할때만 발생하는 이벤트
-    console.log(window.scrollY);
-    console.log(window.innerHeight);
-    console.log(document.body.clientHeight);
+    // console.log(window.scrollY);
+    // console.log(window.innerHeight);
+    // console.log(document.body.clientHeight);
     if (window.scrollY === 0) { // 맨위로 도달
         //scrollY 값이 0 일때 (wheel 이벤트와 상관 없음)
         selectedNavIndex = 0;
