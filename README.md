@@ -47,6 +47,57 @@ IE 6-9 에선 제대로 보여지지 않을수 있습니다.)
    이메일, Github, Youtube
 ```
 
+기능정리
+
+1. 최상단 메뉴바 투명하게 만들기
+
+- 맨 상단에 위치 해 있을땐 메뉴바가 투명함. -> 메뉴바의 높이보다 세로 스크롤량이 클 경우 투명해지지 않음.
+
+```
+const navbar = document.querySelector('#navbar');
+const navbarHeight = navbar.getBoundingClientRect().height;
+
+console.log(navbarHeight);
+
+document.addEventListener('scroll', () => {
+    console.log(`window.scrollY : ${window.scrollY}`);
+    // console.log(`navbarHeight : ${navbarHeight}`);
+    if (window.scrollY > navbarHeight) {
+        navbar.classList.add('navbar--dark');
+        navbarMenu.classList.remove('open');
+    } else {
+        navbar.classList.remove('navbar--dark');
+    }
+
+});
+```
+
+2. 상단 메뉴 버튼 클릭시 해당 섹션(구간)으로 스크롤 하기
+
+- 특이하게 부모 메뉴를 클릭하면 자식 메뉴도 클릭할수 있게 처리 했음. (querySelector로 처리 함. querySelectorAll 안썼음.)
+- 그리고 해당 메뉴의 데이터 셋 값을 ID 이름으로 지정해서 그걸 이용해 해당 섹션으로 부드럽게 스크롤.
+- 이해 안가는 부분은 map 구간이다. (내 스스로 해석이 가능하면 업데이트 하겠음.)
+
+3. Contact me 버튼 클릭시 해당 섹션으로 이동
+
+- 2번 처럼 해당 메뉴의 데이터 셋 값을 ID 이름으로 지정해서 그걸 이용해 해당 섹션으로 부드럽게 스크롤.
+
+4. 스크롤시 최상단(home) 컨텐츠 내용 투명하게
+
+- 최상단 내용, 최상단 내용 getBoundingClientRect().height 값 변수로 지정
+- 최상단 내용의 투명도 조절 => 1 - window.scrollY / 최상단 내용 getBoundingClientRect().height
+- ★투명도 조절시 수식 원리 이해 필요★ -> 이해후 수정 예정.
+
+5. 아래로 스크롤시 Top 버튼 보이게
+
+- 이해되면 정리.
+
+6. 프로젝트(포트폴리오) 카테고리 기능.
+
+- 이해되면 정리.
+
+7~9도 작성 해야 함.
+
 추가 수정 사항  
 21.8.31
 
